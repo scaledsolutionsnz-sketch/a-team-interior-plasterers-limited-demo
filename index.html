@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Team Interior Plasterers — Christchurch</title>
+<meta name="description" content="Expert interior plastering in Christchurch. New builds, renovations, gib stopping, skimming and finishing. Call Brian James on +64 21 418 141.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:    #151E2D;
+  --slateDk:  #0D1420;
+  --slateMd:  #1E2D42;
+  --amber:    #E8961A;
+  --amberLt:  #F4AE3A;
+  --amberDim: rgba(232,150,26,.12);
+  --off:      #F6F5F2;
+  --off2:     #EDECEA;
+  --off3:     #E4E2DE;
+  --text:     #151E2D;
+  --body:     #4A5568;
+  --dim:      #7A8A9A;
+  --border:   rgba(21,30,45,.1);
+  --white:    #ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0;background:transparent;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:rgba(13,20,32,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.nav-logo{padding-left:1rem;display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.nav-logo-name{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:var(--white);letter-spacing:-.01em;line-height:1}
+.nav-logo-sub{font-size:.6rem;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.18em;text-transform:uppercase;margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:.15rem}
+.nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.72);padding:.45rem .8rem;border-radius:5px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.08)}
+.nav-cta{background:var(--amber)!important;color:var(--white)!important;padding:.55rem 1.25rem!important;border-radius:5px!important;font-weight:700!important;font-size:.78rem!important;letter-spacing:.06em!important;text-transform:uppercase!important;margin-right:1rem!important;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--amberLt)!important;transform:translateY(-1px)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:1px solid rgba(255,255,255,.18);border-radius:5px;margin-right:1rem}
+.hamburger span{display:block;width:20px;height:2px;background:rgba(255,255,255,.8);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:70px;inset-x:0;background:rgba(13,20,32,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07);padding:1.2rem 1.5rem 1.8rem;z-index:99}
+.mobile-menu a{display:block;padding:.8rem 0;font-size:.95rem;color:rgba(255,255,255,.72);border-bottom:1px solid rgba(255,255,255,.07);font-weight:500}
+.mobile-menu a:last-child{border:none;margin-top:.6rem;padding:.9rem 1rem;text-align:center;background:var(--amber);border-radius:7px;color:var(--white);font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:.06em}
+.mobile-menu.open{display:block}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.85)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(108deg,rgba(13,20,32,.96) 0%,rgba(13,20,32,.78) 50%,rgba(13,20,32,.42) 100%)}
+.hero-overlay2{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(13,20,32,.88) 100%)}
+.hero-content{position:relative;z-index:10;max-width:1180px;margin:0 auto;padding:0 2.5rem;padding-top:70px;width:100%}
+.eyebrow-pill{display:inline-flex;align-items:center;gap:.55rem;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amberLt);margin-bottom:1.4rem;padding:.4rem .95rem;border-radius:99px;border:1px solid rgba(232,150,26,.3);background:rgba(232,150,26,.08)}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,7vw,5.6rem);font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--white);margin-bottom:1.4rem;max-width:720px}
+.hero h1 span{color:var(--amber)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.68);line-height:1.82;max-width:480px;margin-bottom:2.5rem;font-weight:300}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.85rem;margin-bottom:3.5rem}
+.btn-amber{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.2rem;background:var(--amber);color:var(--white);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .2s;letter-spacing:.01em}
+.btn-amber:hover{background:var(--amberLt);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.2rem;background:transparent;border:2px solid rgba(255,255,255,.35);color:var(--white);border-radius:6px;font-size:.95rem;font-weight:500;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.07)}
+.hero-stats{display:flex;gap:3rem;flex-wrap:wrap}
+.stat-val{font-family:'Outfit',sans-serif;font-size:2.4rem;font-weight:800;color:var(--white);line-height:1;letter-spacing:-.03em}
+.stat-val span{color:var(--amber)}
+.stat-label{font-size:.68rem;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
+
+/* ABOUT */
+.about{background:var(--off);padding:7rem 2.5rem}
+.si{max-width:1180px;margin:0 auto}
+.eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:.85rem;display:flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--amber);flex-shrink:0}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--text);margin-bottom:1rem}
+h2 em{font-style:normal;color:var(--amber)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5.5rem;align-items:center}
+.about-body{font-size:.97rem;color:var(--body);line-height:1.88;margin-bottom:1.3rem}
+.about-checks{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+.check{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--body)}
+.check-icon{width:22px;height:22px;border-radius:50%;background:var(--amberDim);border:1px solid rgba(232,150,26,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;color:var(--amber);font-weight:700;margin-top:.05rem}
+.about-img-wrap{position:relative}
+.about-img{border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(21,30,45,.14)}
+.about-img img{width:100%;height:500px;object-fit:cover}
+.about-badge{position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(13,20,32,.94);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.3rem;display:flex;align-items:center;gap:.85rem}
+.badge-icon{font-size:1.8rem}
+.badge-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--white)}
+.badge-text span{font-size:.72rem;color:rgba(255,255,255,.5)}
+
+/* SERVICES */
+.services{background:var(--slate);padding:7rem 2.5rem;position:relative;overflow:hidden}
+.services::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(232,150,26,.06) 0%,transparent 65%)}
+.services-eyebrow{color:var(--amberLt)}
+.services-eyebrow::before{background:var(--amberLt)}
+.services h2{color:var(--white)}
+.services h2 em{color:var(--amberLt)}
+.services-intro{font-size:.95rem;color:rgba(255,255,255,.58);line-height:1.85;max-width:520px;margin-bottom:3.5rem;font-weight:300}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.svc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:2rem;transition:background .25s,border-color .25s,transform .25s;position:relative;overflow:hidden;cursor:default}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.svc-card:hover{background:rgba(255,255,255,.07);border-color:rgba(232,150,26,.25);transform:translateY(-4px)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon{width:50px;height:50px;border-radius:12px;background:var(--amberDim);border:1px solid rgba(232,150,26,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem}
+.svc-title{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:.55rem;letter-spacing:-.01em}
+.svc-body{font-size:.87rem;color:rgba(255,255,255,.55);line-height:1.78}
+
+/* WORK / GALLERY */
+.work{background:var(--off2);padding:7rem 2.5rem;position:relative}
+.work::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--amber),var(--amberLt),transparent)}
+.work-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:260px 260px;gap:1rem;margin-top:2.5rem}
+.work-item{border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+.work-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.work-item:hover img{transform:scale(1.05)}
+.work-item:first-child{grid-row:span 2}
+.work-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(13,20,32,.7) 100%);opacity:0;transition:opacity .3s}
+.work-item:hover .work-overlay{opacity:1}
+.work-label{position:absolute;bottom:1rem;left:1rem;font-size:.78rem;font-weight:600;color:var(--white);letter-spacing:.06em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.work-item:hover .work-label{opacity:1;transform:none}
+
+/* REVIEWS */
+.reviews{background:var(--off);padding:7rem 2.5rem}
+.reviews-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:3.5rem}
+.rating-block{display:flex;align-items:center;gap:1.2rem;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.8rem;box-shadow:0 4px 20px rgba(21,30,45,.06)}
+.rating-num{font-family:'Outfit',sans-serif;font-size:3rem;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.04em}
+.rating-meta{display:flex;flex-direction:column;gap:.3rem}
+.rating-stars{color:#f59e0b;font-size:1.1rem;letter-spacing:.08em}
+.rating-label{font-size:.76rem;color:var(--dim);font-weight:500}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
+.rev-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:box-shadow .25s,transform .25s}
+.rev-card:hover{box-shadow:0 12px 40px rgba(21,30,45,.09);transform:translateY(-4px)}
+.rev-stars{color:#f59e0b;font-size:.95rem;letter-spacing:.06em;margin-bottom:.9rem}
+.rev-text{font-size:.92rem;color:var(--body);line-height:1.82;font-style:italic;margin-bottom:1.2rem}
+.rev-author{font-size:.85rem;font-weight:700;color:var(--text)}
+.rev-meta{font-size:.74rem;color:var(--dim);margin-top:.15rem}
+.google-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:2.5rem}
+
+/* CTA BAND */
+.cta-band{background:var(--amber);padding:5.5rem 2.5rem;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 60%)}
+.cta-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;flex-wrap:wrap}
+.cta-band h2{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);letter-spacing:-.02em;margin-bottom:.6rem}
+.cta-band p{font-size:.97rem;color:rgba(255,255,255,.82);font-weight:300}
+.cta-btns{display:flex;flex-direction:column;gap:.85rem;min-width:200px}
+.btn-white{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 2rem;background:var(--white);color:var(--amber);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-white-outline{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 2rem;background:transparent;border:2px solid rgba(255,255,255,.6);color:var(--white);border-radius:6px;font-size:.9rem;font-weight:600;transition:border-color .2s,background .2s}
+.btn-white-outline:hover{border-color:var(--white);background:rgba(255,255,255,.1)}
+
+/* CONTACT */
+.contact{background:var(--slateDk);padding:7rem 2.5rem}
+.contact-eyebrow{color:var(--amberLt)}
+.contact-eyebrow::before{background:var(--amberLt)}
+.contact h2{color:var(--white)}
+.contact h2 em{color:var(--amberLt)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:5rem;align-items:start;margin-top:2.5rem}
+.c-info-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;margin-bottom:.85rem;transition:border-color .2s}
+.c-info-item:hover{border-color:rgba(232,150,26,.25)}
+.c-icon{width:42px;height:42px;border-radius:9px;background:var(--amberDim);border:1px solid rgba(232,150,26,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.c-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.2rem}
+.c-val{font-size:.92rem;color:rgba(255,255,255,.82);font-weight:500}
+.c-val a{color:var(--amberLt);transition:color .2s}
+.c-val a:hover{color:var(--white)}
+.form-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2.4rem}
+.form-title{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:1.4rem;letter-spacing:-.02em}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.f-group{margin-bottom:1rem}
+.f-group label{display:block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.42rem}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:.78rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:7px;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s,background .2s}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:rgba(232,150,26,.55);background:rgba(255,255,255,.08)}
+.f-group select{cursor:pointer;color:rgba(255,255,255,.68);appearance:none}
+.f-group select option{background:#0D1420;color:var(--white)}
+.f-group textarea{resize:vertical;min-height:110px}
+.f-submit{width:100%;padding:1rem;background:var(--amber);color:var(--white);border:none;border-radius:7px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.02em;transition:background .2s,transform .15s;margin-top:.3rem}
+.f-submit:hover{background:var(--amberLt);transform:translateY(-1px)}
+
+/* FOOTER */
+footer{background:var(--slateDk);border-top:1px solid rgba(255,255,255,.06);padding:3rem 2.5rem 2rem}
+.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.f-brand-name{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:.3rem;letter-spacing:-.01em}
+.f-brand-sub{font-size:.68rem;color:rgba(255,255,255,.38);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.9rem}
+.f-brand-desc{font-size:.84rem;color:rgba(255,255,255,.45);line-height:1.75}
+.f-col-title{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+.f-col a{display:block;font-size:.85rem;color:rgba(255,255,255,.55);margin-bottom:.55rem;transition:color .2s}
+.f-col a:hover{color:var(--white)}
+.f-col p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:.4rem}
+.f-col p a{color:rgba(255,255,255,.55);display:inline}
+.f-col p a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1180px;margin:0 auto}
+.footer-copy{font-size:.74rem;color:rgba(255,255,255,.3)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-img-wrap{order:-1}
+  .about-img img{height:360px}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .cta-inner{grid-template-columns:1fr;gap:1.5rem}
+  .cta-btns{flex-direction:row;flex-wrap:wrap;min-width:unset}
+  .work-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px}
+  .work-item:first-child{grid-row:span 1}
+}
+@media(max-width:640px){
+  nav{height:62px}
+  .nav-logo{padding-left:.85rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{top:62px}
+  .hero{min-height:100svh}
+  .hero-content{padding:0 1.25rem;padding-top:62px}
+  .hero h1{font-size:2.6rem}
+  .hero-sub{font-size:.93rem}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .hero-btns a{text-align:center;justify-content:center}
+  .hero-stats{gap:2rem}
+  .about,.services,.work,.reviews,.contact{padding:4.5rem 1.25rem}
+  h2{font-size:1.9rem}
+  .work-grid{grid-template-columns:1fr;height:auto;grid-template-rows:unset}
+  .work-item{height:220px}
+  .work-item:first-child{grid-row:span 1}
+  .reviews-top{flex-direction:column;align-items:flex-start}
+  .f-row{grid-template-columns:1fr}
+  .form-wrap{padding:1.6rem}
+  footer{padding:3rem 1.25rem 1.5rem}
+  .footer-inner{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .cta-band{padding:4rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-name">A Team Plasterers</span>
+    <span class="nav-logo-sub">Christchurch</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#work" onclick="toggleMenu()">Our Work</a>
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">Get a Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2000&q=85&fm=webp&fit=crop')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay2"></div>
+  <div class="hero-content">
+    <div class="eyebrow-pill"><span class="eyebrow-dot"></span>Christchurch Plasterers</div>
+    <h1>Interior plastering<br>done <span>right.</span></h1>
+    <p class="hero-sub">A Team Interior Plasterers delivers expert plastering across Christchurch — new builds, renovations, and finishing work you can actually be proud of.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-amber">Get a Free Quote</a>
+      <a href="#services" class="btn-ghost">See Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">10<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-val">500<span>+</span></div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div>
+        <div class="stat-val">100<span>%</span></div>
+        <div class="stat-label">Kiwi Owned & Operated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="si">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="eyebrow">About A Team Plasterers</p>
+        <h2>Christchurch's trusted<br><em>interior plastering specialists.</em></h2>
+        <p class="about-body">A Team Interior Plasterers Limited is a Christchurch-based plastering company built on quality workmanship, honest service, and a commitment to getting the job done properly the first time.</p>
+        <p class="about-body">Led by Brian James, our team works on everything from new residential builds and full renovations through to repairs and finishing work. We take pride in clean lines, smooth surfaces, and leaving every site better than we found it.</p>
+        <div class="about-checks">
+          <div class="check"><div class="check-icon">✓</div><span>Fully insured and trade-qualified plasterers</span></div>
+          <div class="check"><div class="check-icon">✓</div><span>Residential and light commercial work</span></div>
+          <div class="check"><div class="check-icon">✓</div><span>Punctual, tidy, and reliable on every job</span></div>
+          <div class="check"><div class="check-icon">✓</div><span>Free, no-obligation quotes for all projects</span></div>
+        </div>
+        <a href="#contact" class="btn-amber">Get a Free Quote</a>
+      </div>
+      <div class="about-img-wrap reveal">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85&fm=webp&fit=crop" alt="A Team plasterer working on interior walls in Christchurch">
+        </div>
+        <div class="about-badge">
+          <div class="badge-icon">🏆</div>
+          <div class="badge-text">
+            <strong>Quality Guaranteed</strong>
+            <span>Christchurch's A Team Plasterers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="si">
+    <div class="reveal">
+      <p class="eyebrow services-eyebrow">What We Do</p>
+      <h2>Interior plastering services<br><em>built around your project.</em></h2>
+      <p class="services-intro">Whether it's a brand-new home, a full renovation, or a targeted repair — we have the skills and experience to deliver a result you'll be happy with for years to come.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">🏗️</div>
+        <div class="svc-title">New Build Plastering</div>
+        <p class="svc-body">Full interior plastering for new residential builds throughout Christchurch. We work closely with builders and project managers to keep your timeline on track.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🔨</div>
+        <div class="svc-title">Renovations & Alterations</div>
+        <p class="svc-body">Plastering for home renovations — from room additions and layout changes to full whole-home refurbs. Matched finishes, seamless joins, clean results.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">✋</div>
+        <div class="svc-title">Gib Stopping & Finishing</div>
+        <p class="svc-body">Expert gib stopping to Level 4 and Level 5 standard. Whether you're painting or wallpapering, we deliver the surface quality your finish demands.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🪣</div>
+        <div class="svc-title">Skimming & Levelling</div>
+        <p class="svc-body">Skim coating over existing walls and ceilings to create a smooth, uniform surface — ideal for older homes or surfaces showing wear, damage or texture inconsistencies.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🧱</div>
+        <div class="svc-title">Texture & Plaster Coatings</div>
+        <p class="svc-body">Applied texture finishes for interior walls and ceilings — from fine sand to more textured effects. Great for feature walls and high-traffic areas requiring character and durability.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🔧</div>
+        <div class="svc-title">Repairs & Patching</div>
+        <p class="svc-body">Professional repair work for cracked, damaged, or water-affected plaster. We match existing textures and finishes so repairs blend seamlessly with the surrounding surface.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK GALLERY -->
+<section class="work" id="work">
+  <div class="si">
+    <div class="reveal">
+      <p class="eyebrow">Our Work</p>
+      <h2>Projects we're <em>proud to stand behind.</em></h2>
+    </div>
+    <div class="work-grid">
+      <div class="work-item reveal">
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&q=85&fm=webp&fit=crop" alt="Clean interior plastering work by A Team Christchurch">
+        <div class="work-overlay"></div>
+        <div class="work-label">Interior Finishing</div>
+      </div>
+      <div class="work-item reveal">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=85&fm=webp&fit=crop" alt="Renovation plastering by A Team Christchurch">
+        <div class="work-overlay"></div>
+        <div class="work-label">Renovation</div>
+      </div>
+      <div class="work-item reveal">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85&fm=webp&fit=crop" alt="New build interior A Team Plasterers">
+        <div class="work-overlay"></div>
+        <div class="work-label">New Build</div>
+      </div>
+      <div class="work-item reveal">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=85&fm=webp&fit=crop" alt="Smooth plaster finish by A Team Interior Plasterers">
+        <div class="work-overlay"></div>
+        <div class="work-label">Gib Stopping</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="si">
+    <div class="reviews-top reveal">
+      <div>
+        <p class="eyebrow">Google Reviews</p>
+        <h2>What Christchurch homeowners <em>say about us.</em></h2>
+      </div>
+      <div class="rating-block">
+        <div class="rating-num">5.0</div>
+        <div class="rating-meta">
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-label">Google Reviews — Christchurch</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Brian and his team did an outstanding job plastering our new home in Sockburn. They were on time, incredibly tidy, and the finish is absolutely flawless. You can see the pride they take in their work. Highly recommend A Team to anyone."</p>
+        <div class="rev-author">Mark & Lisa T.</div>
+        <div class="rev-meta">Christchurch · New build project</div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Used A Team for a full renovation in Merivale. The gib stopping and skimming work was second to none — you'd never know the walls had been touched. Brian is straightforward, fair on price, and delivers exactly what he promises. Won't use anyone else."</p>
+        <div class="rev-author">Sarah K.</div>
+        <div class="rev-meta">Christchurch · Home renovation</div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Quick to quote, responsive, and the quality of the plaster work throughout our renovation came up perfectly. Brian is the kind of tradesman you want on your job — professional, easy to deal with, and takes real pride in leaving a great finish. 10/10."</p>
+        <div class="rev-author">James R.</div>
+        <div class="rev-meta">Christchurch · Alterations & repairs</div>
+      </div>
+    </div>
+    <div class="google-tag reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Verified Google Reviews
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <div class="reveal">
+      <h2>Ready to get started?<br>Let's talk about your project.</h2>
+      <p>Call Brian directly or send us a message — we'll get back to you fast with a free, no-obligation quote.</p>
+    </div>
+    <div class="cta-btns reveal">
+      <a href="tel:+6421418141" class="btn-white">📞 +64 21 418 141</a>
+      <a href="#contact" class="btn-white-outline">Send an Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="si">
+    <div class="reveal">
+      <p class="eyebrow contact-eyebrow">Get in Touch</p>
+      <h2>Request a <em>free quote.</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="c-info-item">
+          <div class="c-icon">👤</div>
+          <div>
+            <div class="c-label">Contact</div>
+            <div class="c-val">Brian James — A Team Interior Plasterers</div>
+          </div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">📞</div>
+          <div>
+            <div class="c-label">Phone</div>
+            <div class="c-val"><a href="tel:+6421418141">+64 21 418 141</a></div>
+          </div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">📍</div>
+          <div>
+            <div class="c-label">Location</div>
+            <div class="c-val">Christchurch, Canterbury</div>
+          </div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">🕐</div>
+          <div>
+            <div class="c-label">Availability</div>
+            <div class="c-val">Mon–Fri · We reply to all enquiries within 24 hours</div>
+          </div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">✅</div>
+          <div>
+            <div class="c-label">Quotes</div>
+            <div class="c-val">Free, no-obligation quotes for all projects</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="form-wrap">
+          <div class="form-title">Tell us about your project</div>
+          <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
+            <input type="hidden" name="replyTo" value="@">
+            <div class="f-row">
+              <div class="f-group">
+                <label>First Name</label>
+                <input type="text" name="firstName" placeholder="John" required>
+              </div>
+              <div class="f-group">
+                <label>Last Name</label>
+                <input type="text" name="lastName" placeholder="Smith" required>
+              </div>
+            </div>
+            <div class="f-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="f-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="021 000 0000">
+            </div>
+            <div class="f-group">
+              <label>Type of Work</label>
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="New Build Plastering">New Build Plastering</option>
+                <option value="Renovation">Renovation / Alteration</option>
+                <option value="Gib Stopping">Gib Stopping & Finishing</option>
+                <option value="Skimming">Skimming & Levelling</option>
+                <option value="Texture Coating">Texture / Plaster Coating</option>
+                <option value="Repairs">Repairs & Patching</option>
+                <option value="Other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label>Project Details</label>
+              <textarea name="message" placeholder="Tell us about your project — size, location, timeline, any specific requirements…" required></textarea>
+            </div>
+            <button type="submit" class="f-submit">Send Enquiry →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand-name">A Team Interior Plasterers Ltd</div>
+      <div class="f-brand-sub">Christchurch, Canterbury</div>
+      <p class="f-brand-desc">Expert interior plastering across Christchurch. New builds, renovations, gib stopping, and finishing work — done right, every time.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Services</div>
+      <a href="#services">New Build Plastering</a>
+      <a href="#services">Renovations</a>
+      <a href="#services">Gib Stopping</a>
+      <a href="#services">Skimming & Levelling</a>
+      <a href="#services">Repairs & Patching</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Company</div>
+      <a href="#about">About Us</a>
+      <a href="#work">Our Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Get a Quote</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Contact</div>
+      <p>📞 <a href="tel:+6421418141">+64 21 418 141</a></p>
+      <p>👤 Brian James</p>
+      <p>📍 Christchurch, Canterbury</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 A Team Interior Plasterers Limited · Christchurch</span>
+    <span class="footer-copy">Built by Scaled Solutions · scaleds.co.nz</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40)
+},{passive:true});
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+document.querySelectorAll('.mobile-menu a').forEach(a=>{
+  a.addEventListener('click',()=>setTimeout(()=>document.getElementById('mobileMenu').classList.remove('open'),100))
+});
+const obs=new IntersectionObserver(e=>{
+  e.forEach((el,i)=>{
+    if(el.isIntersecting){
+      setTimeout(()=>el.target.classList.add('visible'),i*85)
+      obs.unobserve(el.target)
+    }
+  })
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
