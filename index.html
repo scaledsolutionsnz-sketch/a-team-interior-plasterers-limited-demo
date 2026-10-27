@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.1);transition:box-shadow .4s}
 nav.scrolled{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.12)}
 .nav-logo{padding-left:1rem;display:flex;align-items:center;text-decoration:none}
-.nav-logo-img{height:56px;width:auto;display:block}
+.nav-logo-img{height:64px;width:auto;display:block}
 .nav-links{display:flex;align-items:center;gap:.15rem}
 .nav-links a{font-size:.82rem;font-weight:500;color:rgba(21,30,45,.7);padding:.45rem .8rem;border-radius:5px;transition:color .2s,background .2s}
 .nav-links a:hover{color:var(--slate);background:rgba(21,30,45,.06)}
@@ -514,10 +514,7 @@ footer{background:var(--slateDk);border-top:1px solid rgba(255,255,255,.06);padd
       <div class="reveal">
         <div class="form-wrap">
           <div class="form-title">Tell us about your project</div>
-          <form action="https://api.staticforms.xyz/submit" method="post">
-            <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
-            <input type="hidden" name="replyTo" value="@">
-            <div class="f-row">
+          <form id="contactForm">            <div class="f-row">
               <div class="f-group">
                 <label>First Name</label>
                 <input type="text" name="firstName" placeholder="John" required>
@@ -564,7 +561,7 @@ footer{background:var(--slateDk);border-top:1px solid rgba(255,255,255,.06);padd
 <footer>
   <div class="footer-inner">
     <div>
-      <img src="Ainterior.logo.png" alt="A Team Interior Plasterers" style="height:56px;width:auto;background:#fff;border-radius:6px;padding:4px 8px;display:block;margin-bottom:0.85rem">
+      <img src="Ainterior.logo.png" alt="A Team Interior Plasterers" style="height:64px;width:auto;background:#fff;border-radius:6px;padding:4px 8px;display:block;margin-bottom:0.85rem">
       <p class="f-brand-desc">Expert interior plastering across Christchurch. New builds, renovations, gib stopping, and finishing work — done right, every time.</p>
     </div>
     <div class="f-col">
@@ -613,6 +610,42 @@ const obs=new IntersectionObserver(e=>{
   })
 },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+
+<div id="contactSuccess" style="display:none;text-align:center;padding:48px 24px">
+  <div style="font-size:2.8rem;margin-bottom:.8rem">✓</div>
+  <h3 style="margin-bottom:.5rem">Enquiry sent!</h3>
+  <p style="color:var(--muted,#888)">Brian will be in touch shortly to discuss your project.</p>
+</div>
+<script>
+(function(){
+  var form=document.getElementById('contactForm');
+  if(!form)return;
+  var btn=form.querySelector('[type=submit]');
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(btn){btn.disabled=true;btn.textContent='Sending…';}
+    var fd=new FormData(form);
+    var svc=fd.get('service');
+    var msg=(fd.get('message')||'');
+    if(svc)msg='Service: '+svc+'\n\n'+msg;
+    try{
+      var res=await fetch('https://scaledsolutions.co.nz/api/contact',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({firstName:fd.get('firstName'),lastName:fd.get('lastName'),email:fd.get('email'),phone:fd.get('phone'),message:msg,to:'brianjamesateam@gmail.com',siteName:'A Team Interior Plasterers'})
+      });
+      var json=await res.json();
+      if(json.success){
+        form.style.display='none';
+        var s=document.getElementById('contactSuccess');
+        if(s)s.style.display='block';
+      }else{throw new Error('fail');}
+    }catch(err){
+      if(btn){btn.disabled=false;btn.textContent='Send Enquiry →';}
+      alert('Something went wrong — please try again or call us directly.');
+    }
+  });
+})();
 </script>
 </body>
 </html>
